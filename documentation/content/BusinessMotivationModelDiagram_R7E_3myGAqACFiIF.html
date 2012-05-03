@@ -1,0 +1,353 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Business Motivation Model Diagram - Introduction</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="vplink" style="position:absolute; z-index:3; visibility:hidden">
+		<table bordercolor="#A9BFD3" cellpadding="0" border="1" cellspacing="0">
+			<tr>
+				<td>
+					<table width="100%" cellpadding="0" border="0" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+Link:							</td>
+							<td style="font-size: 12px;" align="right">
+								<input id="vplink-checkbox" onClick="javascript: vpLinkToggleName()" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		iThaste Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div id="vplink" style="position:absolute; z-index:1; visibility:hidden">
+		<table bordercolor="#A9BFD3" cellpadding="0" border="1" cellspacing="0">
+			<tr>
+				<td>
+					<table width="100%" cellpadding="0" border="0" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+Link:							</td>
+							<td style="font-size: 12px;" align="right">
+								<input id="vplink-checkbox" onClick="javascript: vpLinkToggleName()" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+		<a target="_content_pane" class="PageParentTitle" href="Model_1cfKnmyGAqACFh8Y.html">
+BMM : Model</a>
+	</p>
+	<p class="PageTitle">
+		Business Motivation Model Diagram - Introduction		<a style="padding-left: 16px; font-size: 12px" onclick="javascript: showVpLink('iThaste.vpp://diagram/R7E.3myGAqACFiIF', 'Introduction\niThaste.vpp://diagram/R7E.3myGAqACFiIF', this); return false;" href="#">
+			<img src="../images/icons/link.png" border="0"> link</a>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|432.0|2.0|200.0|360.0|BMMEnd_H_2yRWyGAqACCwWT.html|BMMEnd_H_2yRWyGAqACCwWT.html|7.2yRWyGAqACCwWS" id="option7.2yRWyGAqACCwWS">End : End</option>
+<option value="shape|452.0|162.0|130.0|60.0|BMMGoal_zTeyRWyGAqACCwWe.html|BMMGoal_zTeyRWyGAqACCwWe.html|TTeyRWyGAqACCwWd" id="optionTTeyRWyGAqACCwWd">Goal : Goal</option>
+<option value="shape|72.0|2.0|190.0|360.0|BMMMeans_fgZyRWyGAqACCwW6.html|BMMMeans_fgZyRWyGAqACCwW6.html|vgZyRWyGAqACCwW5" id="optionvgZyRWyGAqACCwW5">Means : Means</option>
+<option value="shape|102.0|62.0|140.0|60.0|BMMMission_9_cKRWyGAqACCwXh.html|BMMMission_9_cKRWyGAqACCwXh.html|d.cKRWyGAqACCwXg" id="optiond.cKRWyGAqACCwXg">Mission : Mission</option>
+<option value="shape|452.0|282.0|130.0|60.0|BMMObjective_2ARyRWyGAqACCwWn.html|BMMObjective_2ARyRWyGAqACCwWn.html|WARyRWyGAqACCwWm" id="optionWARyRWyGAqACCwWm">Objective : Objective</option>
+<option value="shape|102.0|162.0|140.0|60.0|BMMStrategy_zIJyRWyGAqACCwWu.html|BMMStrategy_zIJyRWyGAqACCwWu.html|TIJyRWyGAqACCwWt" id="optionTIJyRWyGAqACCwWt">Strategy : Strategy</option>
+<option value="shape|102.0|282.0|140.0|60.0|BMMTactic_uGpyRWyGAqACCwW0.html|BMMTactic_uGpyRWyGAqACCwW0.html|uGpyRWyGAqACCwWz" id="optionuGpyRWyGAqACCwWz">Tactic : Tactic</option>
+<option value="shape|452.0|62.0|130.0|60.0|BMMVision_SSuyRWyGAqACCwWY.html|BMMVision_SSuyRWyGAqACCwWY.html|iSuyRWyGAqACCwWX" id="optioniSuyRWyGAqACCwWX">Vision : Vision</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id="diagram" src="../images/Introduction2.png" usemap="#diagram_map" class="Image" width="636" height="366"/>
+				<map name="diagram_map">
+<area coords="102.0, 62.0, 242.0, 122.0" coords2="102.0, 62.0, 242.0, 122.0" shape="rect" alt="Mission:Mission" id="areadiagram_map_d.cKRWyGAqACCwXg" href="BMMMission_9_cKRWyGAqACCwXh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="102.0, 282.0, 242.0, 342.0" coords2="102.0, 282.0, 242.0, 342.0" shape="rect" alt="Tactic:Tactic" id="areadiagram_map_uGpyRWyGAqACCwWz" href="BMMTactic_uGpyRWyGAqACCwW0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="102.0, 162.0, 242.0, 222.0" coords2="102.0, 162.0, 242.0, 222.0" shape="rect" alt="Strategy:Strategy" id="areadiagram_map_TIJyRWyGAqACCwWt" href="BMMStrategy_zIJyRWyGAqACCwWu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 282.0, 582.0, 342.0" coords2="452.0, 282.0, 582.0, 342.0" shape="rect" alt="Objective:Objective" id="areadiagram_map_WARyRWyGAqACCwWm" href="BMMObjective_2ARyRWyGAqACCwWn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 162.0, 582.0, 222.0" coords2="452.0, 162.0, 582.0, 222.0" shape="rect" alt="Goal:Goal" id="areadiagram_map_TTeyRWyGAqACCwWd" href="BMMGoal_zTeyRWyGAqACCwWe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 62.0, 582.0, 122.0" coords2="452.0, 62.0, 582.0, 122.0" shape="rect" alt="Vision:Vision" id="areadiagram_map_iSuyRWyGAqACCwWX" href="BMMVision_SSuyRWyGAqACCwWY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 2.0, 262.0, 362.0" coords2="72.0, 2.0, 262.0, 362.0" shape="rect" alt="Means:Means" id="areadiagram_map_vgZyRWyGAqACCwW5" href="BMMMeans_fgZyRWyGAqACCwW6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="432.0, 2.0, 632.0, 362.0" coords2="432.0, 2.0, 632.0, 362.0" shape="rect" alt="End:End" id="areadiagram_map_7.2yRWyGAqACCwWS" href="BMMEnd_H_2yRWyGAqACCwWT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="514.0, 112.0, 514.0, 170.0, 528.0, 170.0, 528.0, 112.0" coords2="514.0, 112.0, 514.0, 170.0, 528.0, 170.0, 528.0, 112.0" shape="poly" alt="null:BMM Relationship" id="areadiagram_map_x2DyRWyGAqACCwXI" href="BMMRelationship_x2DyRWyGAqACCwXH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="514.0, 212.0, 514.0, 290.0, 528.0, 290.0, 528.0, 212.0" coords2="514.0, 212.0, 514.0, 290.0, 528.0, 290.0, 528.0, 212.0" shape="poly" alt="null:BMM Relationship" id="areadiagram_map_SbPyRWyGAqACCwXU" href="BMMRelationship_ibPyRWyGAqACCwXT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="231.0, 75.0, 231.0, 89.0, 460.0, 89.0, 460.0, 75.0" coords2="231.0, 75.0, 231.0, 89.0, 460.0, 89.0, 460.0, 75.0" shape="poly" alt="null:BMM Relationship" id="areadiagram_map_rQiKRWyGAqACCwXt" href="BMMRelationship_LQiKRWyGAqACCwXs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="231.0, 185.0, 231.0, 199.0, 460.0, 199.0, 460.0, 185.0" coords2="231.0, 185.0, 231.0, 199.0, 460.0, 199.0, 460.0, 185.0" shape="poly" alt="null:BMM Relationship" id="areadiagram_map_xIuKRWyGAqACCwYJ" href="BMMRelationship_xIuKRWyGAqACCwYI.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="164.0, 112.0, 164.0, 170.0, 178.0, 170.0, 178.0, 112.0" coords2="164.0, 112.0, 164.0, 170.0, 178.0, 170.0, 178.0, 112.0" shape="poly" alt="null:BMM Relationship" id="areadiagram_map_M0BKRWyGAqACCwYV" href="BMMRelationship_00BKRWyGAqACCwYU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="164.0, 212.0, 164.0, 290.0, 178.0, 290.0, 178.0, 212.0" coords2="164.0, 212.0, 164.0, 290.0, 178.0, 290.0, 178.0, 212.0" shape="poly" alt="null:BMM Relationship" id="areadiagram_map_KrJKRWyGAqACCwYm" href="BMMRelationship_KrJKRWyGAqACCwYl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMEnd.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMEnd.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMEnd_H_2yRWyGAqACCwWT.html">End : End</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMGoal.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMGoal.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMGoal_zTeyRWyGAqACCwWe.html">Goal : Goal</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMMeans.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMMeans.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMMeans_fgZyRWyGAqACCwW6.html">Means : Means</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMMission.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMMission.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMMission_9_cKRWyGAqACCwXh.html">Mission : Mission</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMObjective.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMObjective.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMObjective_2ARyRWyGAqACCwWn.html">Objective : Objective</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMStrategy.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMStrategy.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMStrategy_zIJyRWyGAqACCwWu.html">Strategy : Strategy</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMTactic.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMTactic.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMTactic_uGpyRWyGAqACCwW0.html">Tactic : Tactic</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/BMMVision.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/BMMVision.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="BMMVision_SSuyRWyGAqACCwWY.html">Vision : Vision</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		iThaste Documentation	</div>
+</body>
+</html>
